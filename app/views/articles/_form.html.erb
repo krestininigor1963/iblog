@@ -1,0 +1,39 @@
+
+
+
+<%= form_with model: article, local: true do |form| %>
+
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %><br>
+    <% unless article.errors.empty? %>
+       <% article.errors.full_messages_for(:body).each do |message| %>
+          <div><%= message %></div>
+       <% end %>
+    <% end %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% unless article.errors.empty? %>
+       <% article.errors.full_messages_for(:body).each do |message| %>
+          <div><%= message %></div>
+       <% end %>
+    <% end %>
+  </div>
+  <br>
+  <div>
+      <%= form.label "select status for article !" %><br>
+      <%= form.select :status, ["public", "private", "archived"] %>
+  </div>
+  <br>  
+  <br>
+  <div>
+    <%= form.submit %>
+  </div>
+
+
+<% end %>
+
+
