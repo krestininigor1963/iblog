@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 	#http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
 
+	
 	def new
 
    #       @article = Article.find(params[:article_id])
@@ -10,6 +11,7 @@ class CommentsController < ApplicationController
 		 # #redirect_to new_path(@article)
 	end
 
+	
 	def create
 		#byebug
 		# @article = Article.find(params[:article_id])
