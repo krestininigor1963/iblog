@@ -47,13 +47,39 @@ class CommentsController < ApplicationController
 
 	def edit
 		#byebug
-		@comment = Comment.find(params[:id]) # article_id - это id - commenta
-		redirect_to article_path(params[:article_id])
+		@comment = Comment.find(params[:article_id]) # article_id - это id - commenta
+		#redirect_to article_path(params[:article_id])
 		#redirect_to article_path(params[:article_id], params[:comment_id])
-		#redirect_to article_path(@comment)
+		#redirect_to article_path(@comment.article_id, @comment.id)
 		#redirect_to article_path(params: { article_id: params[:article_id], comment_id: params[:id] })
+		#redirect_to edit_article_comment_path(params[:article_id], params[:id])
+		#redirect_to comment_path(comment_params)
 
 	end
+
+	def update
+		#byebug
+	  	@comment = Comment.find(params[:id])
+	  	@article = Article.find(@comment.article_id)
+	  	#byebug
+	  	if @comment.update(comment_params)
+	  		#@params[:session][:comment_id] = @comment.id
+	  		#byebug
+	  		#format.html {redirect_to article_path(@comment.article_id)}
+	  		
+	  		#redirect_to article_path(@comment.article_id)
+	  		redirect_to article_path(:id => @comment.article_id, :comment_id => @comment.id)
+
+	  		#redirect_to article_path(@comment.article_id), params: { comment: { comment_id: @comment.id } }
+	  		#redirect_to @article, :article_id => @article.id, :comment_id => @comment.id
+	  	else
+	  		render :edit
+	  	end	
+  	end
+
+    def show
+  	  @comment = Comment.find(params[:id])
+  end
 
 private 
 
@@ -62,3 +88,4 @@ private
 		
 	end	
 end
+

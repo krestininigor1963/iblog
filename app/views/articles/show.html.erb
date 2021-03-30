@@ -1,5 +1,4 @@
-
-<title> Show </title>
+<% provide(:title, "Show Articles") %>
 <h2> <%= @article.title %> </h2>
 <p>  <%= @article.body %> </p>
 <ul>
@@ -16,11 +15,6 @@
 	
 
 <section>
-  <div>
-  <% flash.each do |message_type, message| %>
-          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-  <% end %>
-  </div>
-  <%= render 'comments/form' %>
+    <%= render 'comments/form' %>
 </section>
 
