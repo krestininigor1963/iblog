@@ -1,5 +1,6 @@
 
-<%= form_with model: [ @article, @article.comments.build ], remote: true do |form| %>
+<%= form_with(model: comment, remote: true) do |form| %>
+ 
   <p>
     <%= form.label :commenter %><br>
     <%= form.text_field :commenter %>
@@ -16,6 +17,7 @@
   </p>
 
   <p>
-    <%= form.submit :'new article', class: 'btn btn-success' %><br>
+    <%= form.submit %><br>
   </p>
+
 <% end %>

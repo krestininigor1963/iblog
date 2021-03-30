@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 		 @article = Article.find(params[:article_id])
 		 @comment = @article.comments.build(comment_params)
 		 if @comment.save
-		 	flash[:success] = "comment added!"
+		 	flash[:success] = "comment added !"
 		 	redirect_to article_path(@article)
 		 else
 		 	flash[:danger] = "invalid commenter = #{comment_params[:commenter]}, body = #{comment_params[:body]}!"
@@ -48,6 +48,9 @@ class CommentsController < ApplicationController
 	def edit
 		#byebug
 		@comment = Comment.find(params[:article_id]) # article_id - это id - commenta
+		redirect_to article_path(:comment_id => @comment.id)
+		#redirect_to article_path(:id => @comment.article_id, :comment_id => @comment.id)
+
 		#redirect_to article_path(params[:article_id])
 		#redirect_to article_path(params[:article_id], params[:comment_id])
 		#redirect_to article_path(@comment.article_id, @comment.id)
@@ -68,7 +71,11 @@ class CommentsController < ApplicationController
 	  		#format.html {redirect_to article_path(@comment.article_id)}
 	  		
 	  		#redirect_to article_path(@comment.article_id)
-	  		redirect_to article_path(:id => @comment.article_id, :comment_id => @comment.id)
+
+
+	  		#redirect_to article_path(:id => @comment.article_id, :comment_id => @comment.id)
+	  		redirect_to article_path(@article)
+
 
 	  		#redirect_to article_path(@comment.article_id), params: { comment: { comment_id: @comment.id } }
 	  		#redirect_to @article, :article_id => @article.id, :comment_id => @comment.id

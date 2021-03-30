@@ -4,6 +4,7 @@ one:
   id: 1
   commenter: MyComment1
   body: Commenter_one_1234567890
+  status: public
   article_id: 2  
   article: one
 
@@ -11,5 +12,6 @@ two:
   id: 7
   commenter: MyComment2
   body: Commenter_two_1234567890
+  status: public
   article_id: 2
   article: one

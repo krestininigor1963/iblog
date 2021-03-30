@@ -4,8 +4,10 @@ one:
   id: 2
   title: MyArticle1
   body: MyText1234567890
+  status: public
 
 two:
   id: 3
   title: MyArticle2
   body: MyText1234567890
+  status: public

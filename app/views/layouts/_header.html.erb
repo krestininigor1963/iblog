@@ -2,6 +2,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
         <%= link_to "iBlog", articles_path, id: "logo" %>
+
         <nav>
         	<div class="navbar-header">  <!-- Adding the markup for a hamburger menu -->
             <button type="button" class="navbar-toggle collapsed"
@@ -17,6 +18,7 @@
           <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
                                             id="bs-example-navbar-collapse-1">
                 <li><%= link_to "Home",   root_path  %></li>
+                <li><%= link_to "Log in", '#' %></li>
           </ul>
         </nav>
 	</div>

@@ -1,25 +1,4 @@
-<h1>Edit Comment</h1>
-<%= form_with(model: @comment, local: true) do |form| %>
- 
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
+<% provide(:title, "Edit Comment") %>
 
-  <p>
-
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-    
-    
-  </p>
-
-  <p>
-    <%= form.label "select status for comment !" %><br>
-    <%= form.select :status, ["public", "private", "archived"] %>
-  </p>
-
-  <p>
-    <%= form.submit %><br>
-  </p>
-<% end %>
+<h1>Edit Article</h1>
+<%= render "comments/edit", comment: comment %>
