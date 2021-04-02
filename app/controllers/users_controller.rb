@@ -14,12 +14,19 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(params_user)
   	if @user.save
+        log_in @user
         # Handle a successful save.
         flash[:success] = "Welcome to the iBlog App!"
         redirect_to user_path(@user)
   	else
-  	   render :new
+        render 'new'
   	end
+  end
+
+  def edit
+  end
+
+  def update
   end
 
 
