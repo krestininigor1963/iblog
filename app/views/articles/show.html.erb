@@ -2,18 +2,30 @@
 <h2> <%= @article.title %> </h2>
 <p>  <%= @article.body %> </p>
 <ul>
-	<li><%= link_to "Edit Article", edit_article_path %> </li>
-	<li><%= link_to "Delete Article", article_path(@article), 
-	        method: :delete,  data: { confirm: "Are you sure?" } %> </li>
+	<% #byebug %>
+    <%# if currentuser?(@article.user) %>
+		<li><%= link_to "Edit Article", edit_article_path %> </li>
+		<li><%= link_to "Delete Article", article_path(@article), 
+		        method: :delete,  data: { confirm: "Are you sure?" } %> </li>
+	<%# end %>	        
+
 </ul>
 <hr>
 
 <section>
-	<h2>Article Comments count (<%= @article.comments.count %>) </h2>
-  	<%= render @article.comments %>
+	  <li>
+		 <%= render @comments %>
+	  </li>
 </section>  	
 
 <section>	
 	<hr>
-	<%= render 'comments/form' %>
-</section>  	
+		<div class="col-md-4 ">
+			<% provide(:button_text, "New comment") %>
+			<%= render 'comments/form', comment: @comment %>
+		</div>
+</section>  
+
+
+
+

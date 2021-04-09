@@ -1,3 +1,4 @@
+<% #byebug %>
 <p> <% unless params[:comment_id].nil? 
 		if comment.id == params[:comment_id].to_d %>
 		<% #byebug %>
@@ -10,7 +11,7 @@
 
 		<% end %>
 	<% end %>
-<p>
+	
 	<strong> Commenter: </strong>
 		<%= comment.commenter %>
 </p>

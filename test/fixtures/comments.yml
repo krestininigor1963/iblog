@@ -6,6 +6,7 @@ one:
   body: Commenter_one_1234567890
   status: public
   article_id: 2  
+  user_id: 1
   article: one
 
 two:
@@ -14,4 +15,5 @@ two:
   body: Commenter_two_1234567890
   status: public
   article_id: 2
+  user_id: 2 
   article: one

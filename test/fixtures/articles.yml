@@ -2,12 +2,13 @@
 
 one:
   id: 2
-  title: MyArticle1
-  body: MyText1234567890
+  title: articleone
+  body: bodytext_articleone
   status: public
+
 
 two:
   id: 3
-  title: MyArticle2
-  body: MyText1234567890
+  title: articletwo
+  body: bodytext_articletwo
   status: public

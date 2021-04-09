@@ -1,0 +1,10 @@
+<% provide(:title, "New comment") %>
+<% provide(:button_text, "Save changes") %>
+
+<h1>New Comment</h1>
+<% #byebug %>
+<div class="row">
+	<div class="col-md-4 ">
+		<%= render "form", comment: @comment %>
+	</div>
+</div>

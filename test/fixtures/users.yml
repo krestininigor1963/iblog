@@ -2,7 +2,7 @@
 michael:
   id: 1
   name: Michael Example
-  email: michael@example.com
+  email: mhartle@gmail.com
   password_digest: <%= User.digest('password') %>
 
 archer:

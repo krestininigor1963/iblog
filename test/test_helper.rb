@@ -25,5 +25,18 @@ class ActiveSupport::TestCase
   def log_in_as(user)
 	 session[:user_id] = user.id
   end
+end
+
+
+class ActionDispatch::IntegrationTest  #для интеграционых тестов
+
+
+  def log_in_as(user, password: 'password')
+
+    #password = User.digest(user.password)
+    post login_path, params:{ session: { email: user.email,
+                                         password: password } }
+  end 
+
   
 end

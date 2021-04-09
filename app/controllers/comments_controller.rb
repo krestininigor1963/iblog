@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
 	#http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
+	before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
+	#before_action :currentuser, only: [:create, :edit, :update, :destroy]
 
 	
 	def new
-
    #       @article = Article.find(params[:article_id])
 		 # @comment = @article.comments.build
 		 # #byebug
@@ -15,7 +16,7 @@ class CommentsController < ApplicationController
 	def create
 		#byebug
 		# @article = Article.find(params[:article_id])
-  #   	@comment = @article.comments.create(comment_params)
+     	#@comment = @article.comments.create(comment_params)
 		# if @comment.save
 		#    flash[:success] = "comment added !"
 		#    redirect_to article_path(@article)
@@ -27,12 +28,16 @@ class CommentsController < ApplicationController
 
 		 @article = Article.find(params[:article_id])
 		 @comment = @article.comments.build(comment_params)
+		 @comment.user_id = @current_user.id
+		 #byebug
 		 if @comment.save
 		 	flash[:success] = "comment added !"
 		 	redirect_to article_path(@article)
+		 	#byebug
 		 else
-		 	flash[:danger] = "invalid commenter = #{comment_params[:commenter]}, body = #{comment_params[:body]}!"
-		 	redirect_to article_path(@article)
+		 	#byebug
+		 	 flash[:danger] = "invalid commenter #{comment_params[:commenter]}, body #{comment_params[:body]}!"
+		 	 redirect_to article_path(@article)
 		 end	
 		
 			

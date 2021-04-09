@@ -75,5 +75,24 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "associated articles should be destroyed" do
+    @user.save
+    @user.articles.create!(title: "first", body: "this is first", status: "public")
+    assert_difference 'Article.count', -1 do
+      @user.destroy
+    end
+  end
+
+  test "associated comments should be destroyed" do
+    @user.save
+    @article = @user.articles.create!(title: "first", body: "this is first", status: "public")
+    @comment = @article.comments.create!(commenter: "first", body: "this is first", status: "public")
+    #@comment.user_id = @user.id
+
+    assert_difference 'Comment.count', -1 do
+      @user.destroy
+    end
+  end
+
 
 end

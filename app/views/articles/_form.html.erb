@@ -1,36 +1,24 @@
 
-
-
 <%= form_with model: article, local: true do |form| %>
-
+  <%= render 'shared/error_messages', object: form.object %>
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %><br>
-    <% unless article.errors.empty? %>
-       <% article.errors.full_messages_for(:body).each do |message| %>
-          <div><%= message %></div>
-       <% end %>
-    <% end %>
   </div>
   <br>
   <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %><br>
-    <% unless article.errors.empty? %>
-       <% article.errors.full_messages_for(:body).each do |message| %>
-          <div><%= message %></div>
-       <% end %>
-    <% end %>
   </div>
   <br>
   <div>
-      <%= form.label "select status for article !" %><br>
-      <%= form.select :status, ["public", "private", "archived"] %>
+    <%= form.label "select status for article !" %><br>
+    <%= form.select :status, ["public", "private", "archived"] %>
   </div>
   <br>  
   <br>
   <div>
-    <%= form.submit %>
+    <%= form.submit yield(:button_text), class: "btn btn-primary" %>
   </div>
 
 
